@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- Style -->
+  <style>
+      * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: sans-serif;
+    background-color: rgb(5, 129, 129);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 50px;
+    align-items: center;
+    color: #fff;
+  }
+  h1 {
+    font-size: 50px;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+  input {
+    font-size: 25;
+    padding: 5px 8px;
+    border-radius: 8px;
+    border: none;
+    font-family: inherit;
+  }
+  button {
+    font-size: 20px;
+    background-color: rgb(214, 102, 124);
+    border-radius: 8px;
+    border: none;
+    padding: 8px 12px;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  button:hover {
+    background: red;
+  }
+  .message {
+    color: azure;
+    width: 300px;
+  }
+  </style>
+</head>
+<body>
+  <!-- document html -->
+  <h1>Ro'yxatdan o'ting</h1>
+  <form id="sinupup-form">
+    <input type="text" id="username" placeholder="username" />
+    <button type="submit">Qabul qilish</button>
+  </form>
+  <div class="message"></div>
+  <!-- JavaScript -->
+  <script>
+    const signupForm = document.querySelector("#sinupup-form");
+    const message = document.querySelector(".message");
+
+    signupForm.addEventListener("submit",  (e) => {
+      e.preventDefault();
+      const RegEx = /^[a-zA-Z0-9]{6,12}$/;
+      const inputVal = signupForm.username.value;
+
+      if (RegEx.test(inputVal)) {
+        message.textContent = "Ma'lumot to'g'ri";
+      } else {
+        message.textContent =
+        "Xatolik aniqlandi kiritilayotgan ma'lumot 6 va 12 oralig'ida bo'lsin ";
+      }
+    });
+  </script>
+</body>
+</html>
